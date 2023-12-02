@@ -12,4 +12,12 @@
     </div>
     <button type="submit">Login</button>
   </form>
+
+  {{#if errors}}
+    <br>
+      <div class="mb-3" style="color: red;">
+        <small class="text-danger">Email or password incorrect</small>
+      </div>
+  {{/if}}
+
 </div>

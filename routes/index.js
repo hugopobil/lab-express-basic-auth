@@ -15,7 +15,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/register", (req, res, next) => {
-  // console.log(req.body);
+  console.log(req.body);
 
   User.create(req.body)
     .then(() => {
@@ -27,6 +27,13 @@ router.post("/register", (req, res, next) => {
 router.post("/login", (req, res, next) => {
   console.log(req.body);
   const { username, password } = req.body;
+
+  const renderWithErrors = () => {
+    res.render("login.hbs", {
+      username,
+      errors: true,
+    });
+  };
 
   User.findOne({ username })
     .then((user) => {
